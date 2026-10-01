@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NEXUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app" id="app">
+
+  <section class="screen active" id="notes">
+    <header>
+      <h1 class="big" data-i18n="myNotes"></h1>
+      <p class="meta" id="notesMeta"></p>
+    </header>
+    <label class="search"><input id="homeSearch" type="search" data-i18n-ph="searchPh" autocomplete="off"></label>
+    <div class="list" id="notesList"></div>
+    <button class="primary" id="newNote"><svg class="i"><use href="#plus"/></svg><span data-i18n="newNote"></span></button>
+  </section>
+
+  <section class="screen" id="tasks">
+    <header>
+      <h1 data-i18n="tasks"></h1>
+      <p class="meta" id="tasksMeta"></p>
+    </header>
+    <div class="list" id="tasksList"></div>
+    <button class="primary" id="addTask"><svg class="i"><use href="#plus"/></svg><span data-i18n="addTask"></span></button>
+  </section>
+
+  <section class="screen" id="settings">
+    <header><h1 data-i18n="settings"></h1></header>
+    <div class="list">
+      <div class="card row"><span data-i18n="theme"></span>
+        <div class="seg" id="segTheme"><button data-v="light" data-i18n="light"></button><button data-v="dark" data-i18n="dark"></button></div></div>
+      <div class="card row"><span data-i18n="language"></span>
+        <div class="seg" id="segLang"><button data-v="ru">Русский</button><button data-v="en">English</button></div></div>
+      <button class="card row danger" id="resetData" data-i18n="reset"></button>
+    </div>
+  </section>
+
+  <section class="screen editor" id="editor">
+    <div class="ebar">
+      <button class="icon-btn" id="back" aria-label="Back"><svg class="i"><use href="#chevron"/></svg></button>
+      <span id="barTitle"></span>
+      <button class="icon-btn" id="menuBtn" aria-label="Delete"><svg class="i"><use href="#trash"/></svg></button>
+    </div>
+    <div class="ebody">
+      <input id="eTitle" class="etitle" data-i18n-ph="titlePh" autocomplete="off">
+      <textarea id="eText" class="etext" data-i18n-ph="textPh"></textarea>
+    </div>
+  </section>
+
+  <nav id="nav">
+    <button data-tab="notes" class="active" aria-label="Notes"><svg class="i"><use href="#home"/></svg></button>
+    <button data-tab="tasks" aria-label="Tasks"><svg class="i"><use href="#check"/></svg></button>
+    <button data-tab="settings" aria-label="Settings"><svg class="i"><use href="#gear"/></svg></button>
+  </nav>
+
+  <div class="sheet" id="sheet">
+    <div class="scrim" id="scrim"></div>
+    <div class="panel">
+      <input id="sTitle" class="stitle" data-i18n-ph="taskPh" autocomplete="off">
+      <ul class="clist" id="sChecks"></ul>
+      <input id="sAdd" class="cadd" data-i18n-ph="checkPh" autocomplete="off">
+      <div class="sbtns">
+        <button class="ghost" id="sCancel" data-i18n="cancel"></button>
+        <button class="primary" id="sSave" data-i18n="save"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+    <symbol id="home" viewBox="0 0 24 24"><path d="M5 10.5 12 4l7 6.5V20H5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="chevron" viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="chev-d" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="trash" viewBox="0 0 24 24"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="x" viewBox="0 0 24 24"><path d="m7 7 10 10M17 7 7 17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+<script src="script.js"></script>
+</body>
+</html>
